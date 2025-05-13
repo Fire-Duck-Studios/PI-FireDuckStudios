@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2950899564066839295}
   - component: {fileID: 8811704623254796139}
   - component: {fileID: 3142959092832810954}
-  - component: {fileID: 4481069206165074866}
+  - component: {fileID: 8798454108156575770}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
---- !u!114 &4481069206165074866
+--- !u!114 &8798454108156575770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,14 +179,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: db0c9924-717d-4132-a165-db02ca9b8bae
-    m_ActionName: 'Main/Move-Keyboard[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4468a895-b2c5-4f60-aa15-6d6247403213
-    m_ActionName: 'Main/Move-Arrow[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  m_NeverAutoSwitchControlSchemes: 0
+    m_ActionId: 771f4bd6-d480-4f4a-909a-190cd81ba7ad
+    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]'
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Main
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
