@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class MiniJogo_MovePlayer : MonoBehaviour
 {
     [SerializeField] float _speed;
+    [SerializeField] float _forceJump;
 
     Vector2 _move;
     Rigidbody2D _rig;
@@ -29,4 +30,30 @@ public class MiniJogo_MovePlayer : MonoBehaviour
         _rig.linearVelocity = new Vector2(_move.x * _speed, _rig.linearVelocity.y); 
     }
 
+    void Jump()
+    {
+        if (_rig.linearVelocityY <= 0)
+        {
+            _rig.linearVelocityY = 0;
+            _rig.AddForceY(_forceJump);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("JumpOrb"))
+        {
+            Jump();
+            Debug.Log("Entrou");
+        }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("JumpOrb"))
+        {
+            Debug.Log("Saiu");
+        }
+    }
 }
