@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   coneAngle: 60
-  suctionForce: 5
+  suctionForce: 50
   suctionMask:
     serializedVersion: 2
     m_Bits: 64
