@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+public class MJ_ObjectPool : MonoBehaviour
 {
     //public static ObjectPool SharedInstance;
-    [SerializeField] protected GameControl _gameControl;
+    [SerializeField] protected MJ_GameControl _gameControl;
     [SerializeField] protected List<GameObject> pooledObjects;
     [SerializeField] protected GameObject objectToPool;
     [SerializeField] protected int amountToPool;
 
     public virtual void Awake()
     {
-        _gameControl = GameObject.FindWithTag("GameController").GetComponent<GameControl>();
+        _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
         //SharedInstance = this;
     }
 

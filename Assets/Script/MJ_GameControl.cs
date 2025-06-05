@@ -1,11 +1,10 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEngine.GraphicsBuffer;
 
-public class GameControl : MonoBehaviour
+public class MJ_GameControl : MonoBehaviour
 {
-    public MenuControl _menuControl;
+    public MJ_MenuControl _menuControl;
     [SerializeField] Transform _groundBase;
     [SerializeField] float _groundH;
     [SerializeField] float _distance;
@@ -37,7 +36,7 @@ public class GameControl : MonoBehaviour
         for (int i = 0; i < _groundNumber; i++)
         {
             GroundStart();
-            if (i == _groundNumber-2)
+            if (i == _groundNumber - 2)
             {
                 _checkGroundCount = true;
             }
@@ -47,18 +46,21 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void GroundStart()
     {
-        GameObject bullet = GroundPool._groundPool.GetPooledObject();
+        GameObject bullet = MJ_GroundPool._groundPool.GetPooledObject();
         if (bullet != null)
         {
-            bullet.GetComponent<GroundPref>()._fimGame.SetActive(false);
+
+            bullet.SetActive(true);
+
+            bullet.GetComponent<MJ_GroundPref>()._fimGame.SetActive(false);
 
             bullet.transform.position = new Vector2(bullet.transform.position.x, _groundH + _distance);
             _groundH = bullet.transform.position.y;
             if (_checkGroundCount == true)
             {
-                bullet.GetComponent<SpriteRenderer>().color= Color.black;
+                bullet.GetComponent<SpriteRenderer>().color = Color.black;
 
-                bullet.GetComponent<GroundPref>()._fimGame.SetActive(true);
+                bullet.GetComponent<MJ_GroundPref>()._fimGame.SetActive(true);
             }
             //bullet.transform.rotation = turret.transform.rotation;
             bullet.SetActive(true);
@@ -75,10 +77,10 @@ public class GameControl : MonoBehaviour
 
     public void GameStay(bool ativar)
     {
-        _gameStay= ativar;
+        _gameStay = ativar;
         if (_gameStay == true)
         {
-            _panelStartGame.localScale = new Vector3(0,0,0);
+            _panelStartGame.localScale = new Vector3(0, 0, 0);
         }
         else if (_fimGame == true)
         {

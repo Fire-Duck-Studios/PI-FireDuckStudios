@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class MovePlayer : MonoBehaviour
 {
-    GameControl _gameControl;
+    MJ_GameControl _gameControl;
     Rigidbody2D _rb;
     Vector2 _moveInput;
     [SerializeField] float _speed;
@@ -14,7 +14,7 @@ public class MovePlayer : MonoBehaviour
     void Start()
     {
         _rb=GetComponent<Rigidbody2D>();
-        _gameControl = GameObject.FindWithTag("GameController").GetComponent<GameControl>();
+        _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
     }
 
     // Update is called once per frame
@@ -44,15 +44,15 @@ public class MovePlayer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("JumpGround"))
         {
-            GroundJunpControl groundJump = collision.gameObject.GetComponent<GroundJunpControl>();
-
+            MJ_GroundJumpControl groundJump = collision.gameObject.GetComponent<MJ_GroundJumpControl>();
+  
             if (groundJump._numbCor == _numbSort || groundJump._numbCor==0)
             {
                 Jump();
                 Debug.Log(_numbSort);
 
                 _numbSort= Random.Range(1, 5);
-
+                
                 _gameControl._menuControl.CorPulo(_numbSort);
             }
         }

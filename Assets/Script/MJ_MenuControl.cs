@@ -1,18 +1,18 @@
 using TMPro;
 using UnityEngine;
 
-public class MenuControl : MonoBehaviour
+public class MJ_MenuControl : MonoBehaviour
 {
-    GameControl _gameControl;
+    MJ_GameControl _gameControl;
 
     [SerializeField] string[] _nomeCores;
     [SerializeField] TextMeshProUGUI _textoComando;
 
 
-  
+
     void Start()
     {
-        _gameControl = GameObject.FindWithTag("GameController").GetComponent<GameControl>();
+        _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
         CorPulo(0);
     }
 
@@ -20,6 +20,4 @@ public class MenuControl : MonoBehaviour
     {
         _textoComando.text = _nomeCores[number];
     }
-
-
 }

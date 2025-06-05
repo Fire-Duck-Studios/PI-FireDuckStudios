@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GroundPref : MonoBehaviour
+public class MJ_GroundPref : MonoBehaviour
 {
     public GameObject _fimGame;
 }

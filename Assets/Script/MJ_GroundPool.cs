@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class GroundPool : ObjectPool
+public class MJ_GroundPool : MJ_ObjectPool
 {
-    public static GroundPool _groundPool;
+    public static MJ_GroundPool _groundPool;
 
     public override void Awake()
     {
@@ -12,5 +12,4 @@ public class GroundPool : ObjectPool
         _groundPool = this;
 
     }
-   
 }

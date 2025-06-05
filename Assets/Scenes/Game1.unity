@@ -314,7 +314,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 258980269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 054169e31670a2a468e88f1bc3858108, type: 3}
+  m_Script: {fileID: 11500000, guid: 5acab80a24373544ebb597c7aecbba9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _gameControl: {fileID: 0}
@@ -980,8 +980,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1437004747}
-        m_TargetAssemblyTypeName: GameControl, Assembly-CSharp
+      - m_Target: {fileID: 1437004748}
+        m_TargetAssemblyTypeName: MJ_GameControl, Assembly-CSharp
         m_MethodName: GameStay
         m_Mode: 6
         m_Arguments:
@@ -1213,8 +1213,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1437004747}
-        m_TargetAssemblyTypeName: GameControl, Assembly-CSharp
+      - m_Target: {fileID: 1437004748}
+        m_TargetAssemblyTypeName: MJ_GameControl, Assembly-CSharp
         m_MethodName: ResetarCena
         m_Mode: 5
         m_Arguments:
@@ -1588,8 +1588,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1437004747}
-        m_TargetAssemblyTypeName: GameControl, Assembly-CSharp
+      - m_Target: {fileID: 1437004748}
+        m_TargetAssemblyTypeName: MJ_GameControl, Assembly-CSharp
         m_MethodName: ResetarCena
         m_Mode: 5
         m_Arguments:
@@ -1647,8 +1647,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1437004746}
-  - component: {fileID: 1437004747}
   - component: {fileID: 1437004748}
+  - component: {fileID: 1437004747}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: GameController
@@ -1680,19 +1680,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1437004745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a44f6a32ca6de4ca602bcb4d9a14f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 86cee920cfe41674b9c3245ccf6ebe77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menuControl: {fileID: 1437004748}
-  _groundBase: {fileID: 5614681233129524869}
-  _groundH: 0
-  _distance: 7
-  _checkGroundCount: 0
-  _gameStay: 0
-  _fimGame: 0
-  _groundNumber: 10
-  _panelStartGame: {fileID: 809298242}
-  _panelFimGame: {fileID: 655178462}
+  _nomeCores:
+  - Pule no Amarelo
+  - Vermelho
+  - Verde
+  - Amarelo
+  - Azul
+  _textoComando: {fileID: 1440874136}
 --- !u!114 &1437004748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1702,16 +1699,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1437004745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b87459759ef7948b06d1856ff3c3aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c5d658bce2a5944e967d0e4d88827fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nomeCores:
-  - Pule no amarelo
-  - Vermelho
-  - Verde
-  - Amarelo
-  - Azul
-  _textoComando: {fileID: 1440874136}
+  _menuControl: {fileID: 1437004747}
+  _groundBase: {fileID: 5614681233129524869}
+  _groundH: 0
+  _distance: 7
+  _checkGroundCount: 0
+  _gameStay: 0
+  _fimGame: 0
+  _groundNumber: 10
+  _panelStartGame: {fileID: 809298242}
+  _panelFimGame: {fileID: 655178462}
 --- !u!1 &1440874134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,7 +1943,7 @@ GameObject:
   - component: {fileID: 1979626630}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2573,7 +2573,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7790803326664898169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151c8b17136d40f4db793280000ed461, type: 3}
+  m_Script: {fileID: 11500000, guid: 08ddcfe4c7e88c74f9b81f0ae7f20e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _numbCor: 0

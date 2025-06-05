@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 734764532}
   - component: {fileID: 734764531}
   - component: {fileID: 734764535}
-  - component: {fileID: 734764534}
+  - component: {fileID: 734764536}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -394,18 +394,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &734764534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734764530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325d919c7a7899641b79ea9491ca9ebd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &734764535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,6 +438,18 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &734764536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734764530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe1413f836ae6e4a84dbe50319d16f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &921997930
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,8 +745,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 734764534}
-        m_TargetAssemblyTypeName: CenaMenuControl, Assembly-CSharp
+      - m_Target: {fileID: 734764536}
+        m_TargetAssemblyTypeName: MJ_CenaMenuControl, Assembly-CSharp
         m_MethodName: CenaGame
         m_Mode: 1
         m_Arguments:
