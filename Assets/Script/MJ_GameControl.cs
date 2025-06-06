@@ -20,6 +20,8 @@ public class MJ_GameControl : MonoBehaviour
     [SerializeField] Transform _panelStartGame;
 
     public Transform _panelFimGame;
+
+    public MovePlayer _Player;
     void Start()
     {
         _groundH = _groundBase.position.y;
