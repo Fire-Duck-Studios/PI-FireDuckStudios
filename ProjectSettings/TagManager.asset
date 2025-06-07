@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Item
   - SphereJump
+  - JumpGround
+  - Ground
+  - FimGame
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Item
-  - 
+  - Orb
   - 
   - 
   - 

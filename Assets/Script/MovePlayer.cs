@@ -3,18 +3,18 @@ using UnityEngine.InputSystem;
 
 public class MovePlayer : MonoBehaviour
 {
-    GameControl _gameControl;
+    MJ_GameControl _gameControl;
     Rigidbody2D _rb;
     Vector2 _moveInput;
     [SerializeField] float _speed;
     [SerializeField] float _forceJump;
     [SerializeField] bool _checkGround;
-    [SerializeField] int _numbSort;
+    public int _numbSort;
 
     void Start()
     {
         _rb=GetComponent<Rigidbody2D>();
-        _gameControl = GameObject.FindWithTag("GameController").GetComponent<GameControl>();
+        _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
     }
 
     // Update is called once per frame
@@ -44,17 +44,14 @@ public class MovePlayer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("JumpGround"))
         {
-            GroundJunpControl groundJump = collision.gameObject.GetComponent<GroundJunpControl>();
+            MJ_GroundJumpControl groundJump = collision.gameObject.GetComponent<MJ_GroundJumpControl>();
 
-            if (groundJump._numbCor == _numbSort || groundJump._numbCor==0)
-            {
-                Jump();
-                Debug.Log(_numbSort);
+            Jump();
+            Debug.Log(_numbSort);
 
-                _numbSort= Random.Range(1, 5);
+            _numbSort = Random.Range(0, 4);
 
-                _gameControl._menuControl.CorPulo(_numbSort);
-            }
+            _gameControl._menuControl.CorPulo(_numbSort);
         }
         if (collision.gameObject.CompareTag("FimGame"))
         {
