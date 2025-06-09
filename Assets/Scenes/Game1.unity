@@ -2630,6 +2630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blau
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 831f17b8555b7eb4d861b1b68b32ba5f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 831f17b8555b7eb4d861b1b68b32ba5f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
