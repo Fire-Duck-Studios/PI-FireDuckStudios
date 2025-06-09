@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: aed72a997968f7c4a961bb951e810c18
+guid: 094e6c78ff1faa543b71e23a88b53f8d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5170788026153830831
-    second: file_00000000110c622f85b408025525ebf9_0
+      213: 2581218669166010754
+    second: Chao_Right_0
+  - first:
+      213: 6819292215408421219
+    second: Chao_Right_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: file_00000000110c622f85b408025525ebf9_0
+      name: Chao_Right_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 0
-        width: 1494
-        height: 1024
+        x: 22
+        y: 26
+        width: 925
+        height: 726
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa90eb3505452c740800000000000000
-      internalID: 5170788026153830831
+      spriteID: 2812f3724b452d320800000000000000
+      internalID: 2581218669166010754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chao_Right_1
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 556
+        width: 175
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3696107c32ef2ae50800000000000000
+      internalID: 6819292215408421219
       vertices: []
       indices: 
       edges: []
@@ -151,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      file_00000000110c622f85b408025525ebf9_0: 5170788026153830831
+      Chao_Right_0: 2581218669166010754
+      Chao_Right_1: 6819292215408421219
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

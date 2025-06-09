@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: d4b59aa10b996fc4091426a791d98423
+guid: d85739aacce601d468b25e63bf27e12a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7465075736041804138
-    second: ORBE_SEM_FUNDO_0
+      213: 2974121904050861087
+    second: "Ch\xE3o_0"
+  - first:
+      213: 5045403696648897003
+    second: "Ch\xE3o_1"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -73,7 +76,7 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ORBE_SEM_FUNDO_0
+      name: "Ch\xE3o_0"
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 962
-        width: 551
-        height: 551
+        x: 11
+        y: 85
+        width: 983
+        height: 726
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 69e27d37b29b66890800000000000000
-      internalID: -7465075736041804138
+      spriteID: f14f8a93d14364920800000000000000
+      internalID: 2974121904050861087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ch\xE3o_1"
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 615
+        width: 175
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be1433f2eefd40640800000000000000
+      internalID: 5045403696648897003
       vertices: []
       indices: 
       edges: []
@@ -151,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ORBE_SEM_FUNDO_0: -7465075736041804138
+      "Ch\xE3o_0": 2974121904050861087
+      "Ch\xE3o_1": 5045403696648897003
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

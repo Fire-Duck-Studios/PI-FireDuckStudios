@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: d4b59aa10b996fc4091426a791d98423
+guid: 56120430c59c9f340846f900eea4b314
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7465075736041804138
-    second: ORBE_SEM_FUNDO_0
+      213: -4988604145763074868
+    second: Chao_Left_0
+  - first:
+      213: -4708681400928324810
+    second: Chao_Left_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,13 +49,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 127, y: 467, z: 132, w: 382}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -73,7 +76,7 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -126,23 +129,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ORBE_SEM_FUNDO_0
+      name: Chao_Left_0
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 962
-        width: 551
-        height: 551
+        x: 34
+        y: 112
+        width: 859
+        height: 726
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 69e27d37b29b66890800000000000000
-      internalID: -7465075736041804138
+      spriteID: ccc30cec5fae4cab0800000000000000
+      internalID: -4988604145763074868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chao_Left_1
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 642
+        width: 175
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 633bd29a63767aeb0800000000000000
+      internalID: -4708681400928324810
       vertices: []
       indices: 
       edges: []
@@ -151,8 +176,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ORBE_SEM_FUNDO_0: -7465075736041804138
+      Chao_Left_0: -4988604145763074868
+      Chao_Left_1: -4708681400928324810
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
