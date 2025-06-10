@@ -2115,7 +2115,7 @@ MonoBehaviour:
   _pontuacaotexto: {fileID: 962897767}
   _fimGame: 0
   pontuacao: 0
-  _groundNumber: 11
+  _groundNumber: 10
   certo: 0
   _panelStartGame: {fileID: 809298242}
   _panelFimGame: {fileID: 655178462}

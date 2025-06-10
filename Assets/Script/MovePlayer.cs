@@ -27,14 +27,14 @@ public class MovePlayer : MonoBehaviour
       
     }
 
-    void Update()
+    void FixedUpdate()
     {
         
 
 
         if (_gameControl._gameStay == true) 
         {
-            _rb.linearVelocity = new Vector2(_moveInput.x * _speed, _rb.linearVelocity.y);
+            _rb.linearVelocityX = _moveInput.x * _speed;
             popular = true;
         }
       
