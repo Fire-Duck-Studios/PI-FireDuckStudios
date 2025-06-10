@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,16 +13,26 @@ public class MJ_GameControl : MonoBehaviour
     [SerializeField] bool _checkGroundCount;
 
     public bool _gameStay;
-
+    public TextMeshProUGUI _pontuacaotexto;
     public bool _fimGame;
-
+    public int pontuacao;
     public int _groundNumber;
-
+    public bool certo;
     [SerializeField] Transform _panelStartGame;
 
     public Transform _panelFimGame;
 
     public MovePlayer _Player;
+
+    [SerializeField] float _posx;
+
+    private void Update()
+    {
+        if (pontuacao == 10)
+        {
+            certo = true;
+        }
+    }
     void Start()
     {
         _groundH = _groundBase.position.y;
@@ -54,13 +65,26 @@ public class MJ_GameControl : MonoBehaviour
 
             bullet.SetActive(true);
 
-            bullet.GetComponent<MJ_GroundPref>()._fimGame.SetActive(false);
+            //bullet.GetComponent<MJ_GroundPref>()._fimGame.SetActive(false);
 
-            bullet.transform.position = new Vector2(bullet.transform.position.x, _groundH + _distance);
+            float posx1 = bullet.transform.position.x + _posx;
+            float posx2 = bullet.transform.position.x - _posx;
+
+            int sort = Random.Range(0, 2);
+
+            if (sort == 0) {
+                bullet.transform.position = new Vector2(posx1, _groundH + _distance);
+            }
+            else {
+                bullet.transform.position = new Vector2(posx2, _groundH + _distance);
+            }
+
+
+           // bullet.transform.position = new Vector2(bullet.transform.position.x, _groundH + _distance);
             _groundH = bullet.transform.position.y;
             if (_checkGroundCount == true)
             {
-                bullet.GetComponent<SpriteRenderer>().color = Color.black;
+               
 
                 bullet.GetComponent<MJ_GroundPref>()._fimGame.SetActive(true);
             }

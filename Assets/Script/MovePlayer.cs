@@ -9,7 +9,7 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] float _speed;
     [SerializeField] float _forceJump;
     [SerializeField] bool _checkGround;
-    public int _numbSort;
+
 
     void Start()
     {
@@ -24,7 +24,23 @@ public class MovePlayer : MonoBehaviour
         {
             _rb.linearVelocity = new Vector2(_moveInput.x * _speed, _rb.linearVelocity.y);
         }
-       
+
+        if (_gameControl.certo)
+        {
+            _gameControl._gameStay = false;
+            _gameControl._fimGame = true;
+
+            _rb.bodyType = RigidbodyType2D.Kinematic;
+            _rb.linearVelocity = new Vector2(0, 0);
+
+            _gameControl._panelFimGame.gameObject.SetActive(true);
+            _gameControl._panelFimGame.transform.localScale = Vector3.one;
+
+            _gameControl.GameStay(false);
+
+
+        }
+
     }
 
     void Jump()
@@ -52,37 +68,27 @@ public class MovePlayer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            //MJ_GroundJumpControl groundJump = collision.gameObject.GetComponent<MJ_GroundJumpControl>();
+            MJ_GroundJumpControl groundJump = collision.gameObject.GetComponent<MJ_GroundJumpControl>();
 
-            //Jump();
-            //Debug.Log(_numbSort);
+            
+            
 
-            //_numbSort = Random.Range(0, 4);
-
+          
+            Debug.Log("_numbSort");
             //_gameControl._menuControl.CorPulo(_numbSort);
 
             _checkGround = true;
         }
-        if (collision.gameObject.CompareTag("FimGame"))
-        {
-            _gameControl._gameStay = false;
-            _gameControl._fimGame = true;
-
-            _rb.bodyType = RigidbodyType2D.Kinematic;
-            _rb.linearVelocity = new Vector2(0, 0);
-
-            _gameControl._panelFimGame.gameObject.SetActive(true);
-            _gameControl._panelFimGame.transform.localScale = Vector3.one;
-
-            _gameControl.GameStay(false);
-            
-
-        }
+      
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _checkGround = false;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            _checkGround = false;
+        }
+        
     }
 
 
