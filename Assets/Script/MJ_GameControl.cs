@@ -118,4 +118,6 @@ public class MJ_GameControl : MonoBehaviour
     {
         SceneManager.LoadScene(Cena);
     }
+
+    
 }

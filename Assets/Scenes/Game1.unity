@@ -1514,7 +1514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 20
   _jumpPulos: 0
-  _forceJump: 20
+  _forceJump: 25
   _numberJumps: 0
   _MaximoJump: 2
   _checkGround: 0

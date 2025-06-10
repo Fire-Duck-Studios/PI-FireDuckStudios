@@ -25,4 +25,10 @@ public class MJ_CenaMenuControl : MonoBehaviour
     {
         _panelCreditos.localScale = new Vector3(0, 0, 0);
     }
+
+    public void Kitar()
+    {
+        //Debug.Log("KITAR");
+        Application.Quit();
+    }
 }
