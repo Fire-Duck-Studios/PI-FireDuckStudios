@@ -5,26 +5,32 @@ public class MovePlayer : MonoBehaviour
 {
     MJ_GameControl _gameControl;
     Rigidbody2D _rb;
-    Vector2 _moveInput;
+    Vector2 _moveInput,center;
     [SerializeField] float _speed;
     [SerializeField] float _forceJump;
-    [SerializeField] bool _checkGround;
+    [SerializeField] bool _checkGround, _facingRight, morte, popular = false;
+    MJ_Enemy mJ_Enemy;
+    Animator _anim;
 
 
     void Start()
     {
-        _rb=GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
+        _rb =GetComponent<Rigidbody2D>();
         _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
+        mJ_Enemy = GameObject.FindWithTag("Enemy").GetComponent<MJ_Enemy>();    
     }
 
-    // Update is called once per frame
     void Update()
     {
+     
+       
         if (_gameControl._gameStay == true) 
         {
             _rb.linearVelocity = new Vector2(_moveInput.x * _speed, _rb.linearVelocity.y);
+            popular = true;
         }
-
+      
         if (_gameControl.certo)
         {
             _gameControl._gameStay = false;
@@ -41,11 +47,36 @@ public class MovePlayer : MonoBehaviour
 
         }
 
+        if (!morte) 
+        {
+
+            if (_moveInput.x > 0 && _facingRight == true)
+            {
+                flip();
+            }
+            else if (_moveInput.x < 0 && _facingRight == false)
+            {
+                flip();
+            }
+            Anim();
+
+
+
+        }
+        
+     
+
     }
 
+    private void Anim()
+    {
+        float _animMoveX = Mathf.Abs(_moveInput.x);
+        _anim.SetFloat("MoveH", _animMoveX);
+        _anim.SetFloat("MoveY", _moveInput.y);
+    }
     void Jump()
     {
-        if (_rb.linearVelocityY <= 0)
+        if (_rb.linearVelocityY <= 0 && popular)
         {
             _rb.linearVelocityY = 0;
             _rb.AddForceY(_forceJump);
@@ -89,6 +120,21 @@ public class MovePlayer : MonoBehaviour
             _checkGround = false;
         }
         
+    }
+
+    void flip()
+    {
+        _facingRight = !_facingRight;
+        float x = transform.localScale.x;
+        x *= -1;
+        transform.localScale = new Vector2(x, transform.localScale.y);
+    }
+
+    public void Morte()
+    {
+        _rb.bodyType = RigidbodyType2D.Kinematic;
+        _rb.linearVelocity = new Vector2(0, 0);
+        morte = true;
     }
 
 

@@ -6,8 +6,8 @@ public class MJ_Enemy : MonoBehaviour
 {
     [SerializeField] float _Speed = 2f;
     [SerializeField] float _scaleX = 1f;
-    [SerializeField] bool _dir, _isDead = false;
-
+    public bool _dir, _isDead = false;
+    MovePlayer _movePlayer;
     MJ_GameControl _gameControl;
     Rigidbody2D _Rg;
 
@@ -16,6 +16,7 @@ public class MJ_Enemy : MonoBehaviour
         float[] valores = { 1f, 2f, 3f };
         _Speed = valores[Random.Range(0, valores.Length)];
         _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
+        _movePlayer = GameObject.FindWithTag("Player").GetComponent<MovePlayer>();
         _Rg = GetComponent<Rigidbody2D>();
     }
 
@@ -74,6 +75,7 @@ public class MJ_Enemy : MonoBehaviour
             _gameControl._panelFimGame.transform.localScale = Vector3.one;
 
             _gameControl.GameStay(false);
+        _movePlayer.Morte();
 
     }
 }
