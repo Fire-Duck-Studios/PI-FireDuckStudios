@@ -28,7 +28,7 @@ public class MJ_GameControl : MonoBehaviour
 
     private void Update()
     {
-        if (pontuacao == 10)
+        if (pontuacao == _groundNumber)
         {
             certo = true;
         }

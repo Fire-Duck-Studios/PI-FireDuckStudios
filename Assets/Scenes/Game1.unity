@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 20
-  _forceJump: 450
+  _forceJump: 373
   _checkGround: 0
   _facingRight: 0
   morte: 0
@@ -1972,13 +1972,13 @@ MonoBehaviour:
   _menuControl: {fileID: 1437004747}
   _groundBase: {fileID: 1864563347}
   _groundH: 0
-  _distance: 15
+  _distance: 10
   _checkGroundCount: 0
   _gameStay: 0
   _pontuacaotexto: {fileID: 962897767}
   _fimGame: 0
   pontuacao: 0
-  _groundNumber: 10
+  _groundNumber: 11
   certo: 0
   _panelStartGame: {fileID: 809298242}
   _panelFimGame: {fileID: 655178462}
