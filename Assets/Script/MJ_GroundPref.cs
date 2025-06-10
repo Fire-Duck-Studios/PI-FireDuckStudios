@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MJ_GroundPref : MonoBehaviour
 {
-    public GameObject _fimGame;
+    //public GameObject _fimGame;
 
     [SerializeField] MJ_GroundJumpControl[] _jumpControl;
     MovePlayer _player;

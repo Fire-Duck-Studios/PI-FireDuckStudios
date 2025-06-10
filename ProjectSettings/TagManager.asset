@@ -11,6 +11,7 @@ TagManager:
   - FimGame
   - Bloco
   - Enemy
+  - Limbo
   layers:
   - Default
   - TransparentFX

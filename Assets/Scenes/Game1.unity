@@ -450,30 +450,13 @@ GameObject:
   - component: {fileID: 339318756}
   - component: {fileID: 339318755}
   - component: {fileID: 339318754}
-  - component: {fileID: 339318753}
   m_Layer: 0
   m_Name: LinearLimbo
-  m_TagString: Untagged
+  m_TagString: Limbo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &339318753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339318752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84dac4f84bbb84c438555b4cfd714098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Speed: 0
-  _scaleX: 0
-  _dir: 0
-  _isDead: 0
 --- !u!61 &339318754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -504,7 +487,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2351,8 +2334,8 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 150.83124, y: 1.6449407}
+  m_AutoTiling: 1
+  m_Size: {x: 9.3, y: 1.6449407}
   m_EdgeRadius: 0
 --- !u!114 &1864563349
 MonoBehaviour:

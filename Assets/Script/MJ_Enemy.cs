@@ -9,7 +9,8 @@ public class MJ_Enemy : MonoBehaviour
     public bool _dir, _isDead = false;
     MovePlayer _movePlayer;
     MJ_GameControl _gameControl;
-    Rigidbody2D _Rg;
+    [SerializeField] Rigidbody2D _Rg;
+    [SerializeField] bool checkLimbo;
 
     void Start()
     {
@@ -24,7 +25,10 @@ public class MJ_Enemy : MonoBehaviour
     {
         if (_isDead) return; 
 
-        _Rg.linearVelocity = new Vector2(_Speed, _Rg.linearVelocity.y);
+        if (!checkLimbo)
+        {
+            _Rg.linearVelocity = new Vector2(_Speed, _Rg.linearVelocity.y);
+        }
 
         // Ajusta visualmente a direção do inimigo (flip)
         if (_Speed > 0)
@@ -39,7 +43,7 @@ public class MJ_Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bloco") && !_dir)
         {
-            Debug.Log("Colidiu com o bloco!");
+            //Debug.Log("Colidiu com o bloco!");
             _Speed *= -1;
             _dir = true;
             Invoke("TimerDir", 0.2f); // tempo menor já basta
@@ -64,7 +68,7 @@ public class MJ_Enemy : MonoBehaviour
         _dir = false;
     }
 
-    void Dead()
+    public void Dead()
     {
 
         _isDead = true;

@@ -85,7 +85,7 @@ public class MJ_GameControl : MonoBehaviour
             if (_checkGroundCount == true)
             {
                
-                bullet.GetComponent<MJ_GroundPref>()._fimGame.SetActive(true);
+              //  bullet.GetComponent<MJ_GroundPref>()._fimGame.SetActive(true);
 
             }
             //bullet.transform.rotation = turret.transform.rotation;

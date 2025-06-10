@@ -12,7 +12,7 @@ public class MovePlayer : MonoBehaviour
     public int _numberJumps = 0;
     public int _MaximoJump = 2;
     [SerializeField] bool _checkGround, _facingRight, morte, popular = false;
-    MJ_Enemy mJ_Enemy;
+    //MJ_Enemy mJ_Enemy;
     Animator _anim;
 
 
@@ -23,7 +23,7 @@ public class MovePlayer : MonoBehaviour
         _anim = GetComponent<Animator>();
         _rb =GetComponent<Rigidbody2D>();
         _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
-        mJ_Enemy = GameObject.FindWithTag("Enemy").GetComponent<MJ_Enemy>();
+        //mJ_Enemy = GameObject.FindWithTag("Enemy").GetComponent<MJ_Enemy>();
       
     }
 
@@ -134,6 +134,19 @@ public class MovePlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             _checkGround = false;
+        }
+
+        if (collision.gameObject.CompareTag("Limbo"))
+        {
+            //_isDead = true;
+            _gameControl._gameStay = false;
+            _gameControl._fimGame = true;
+
+            _gameControl._panelFimGame.gameObject.SetActive(true);
+            _gameControl._panelFimGame.transform.localScale = Vector3.one;
+
+            _gameControl.GameStay(false);
+            Morte();
         }
         
     }
