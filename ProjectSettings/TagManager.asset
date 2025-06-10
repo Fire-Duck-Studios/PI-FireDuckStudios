@@ -9,6 +9,7 @@ TagManager:
   - JumpGround
   - Ground
   - FimGame
+  - Bloco
   layers:
   - Default
   - TransparentFX
