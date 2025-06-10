@@ -18,6 +18,6 @@ public class MJ_MenuControl : MonoBehaviour
 
     public void CorPulo(int number)
     {
-        _textoComando.text = _nomeCores[number];
+        //_textoComando.text = _nomeCores[number];
     }
 }
