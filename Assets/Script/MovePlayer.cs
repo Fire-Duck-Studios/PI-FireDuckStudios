@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MovePlayer : MonoBehaviour
@@ -7,24 +7,31 @@ public class MovePlayer : MonoBehaviour
     Rigidbody2D _rb;
     Vector2 _moveInput,center;
     [SerializeField] float _speed;
+    [SerializeField] float _jumpPulos;
     [SerializeField] float _forceJump;
+    public int _numberJumps = 0;
+    public int _MaximoJump = 2;
     [SerializeField] bool _checkGround, _facingRight, morte, popular = false;
     MJ_Enemy mJ_Enemy;
     Animator _anim;
 
+
+   
 
     void Start()
     {
         _anim = GetComponent<Animator>();
         _rb =GetComponent<Rigidbody2D>();
         _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
-        mJ_Enemy = GameObject.FindWithTag("Enemy").GetComponent<MJ_Enemy>();    
+        mJ_Enemy = GameObject.FindWithTag("Enemy").GetComponent<MJ_Enemy>();
+      
     }
 
     void Update()
     {
-     
-       
+        
+
+
         if (_gameControl._gameStay == true) 
         {
             _rb.linearVelocity = new Vector2(_moveInput.x * _speed, _rb.linearVelocity.y);
@@ -89,10 +96,22 @@ public class MovePlayer : MonoBehaviour
     }
     public void SetJump(InputAction.CallbackContext value)
     {
-        if (_checkGround) 
+        if (value.performed && _checkGround && _jumpPulos == 0)
         {
-            Jump();
-        }   
+
+             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 0);
+            _rb.AddForce(transform.up * _forceJump, ForceMode2D.Impulse);
+            _numberJumps++;
+            _jumpPulos = 1;
+        }
+        else if (value.performed && !_checkGround && _numberJumps <= _MaximoJump && _jumpPulos == 1)
+        {
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 0);
+            _rb.AddForce(transform.up * _forceJump, ForceMode2D.Impulse);
+            _numberJumps++;
+            _jumpPulos = 2;
+        }
+
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -100,17 +119,14 @@ public class MovePlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             MJ_GroundJumpControl groundJump = collision.gameObject.GetComponent<MJ_GroundJumpControl>();
-
-            
-            
-
-          
             Debug.Log("_numbSort");
             //_gameControl._menuControl.CorPulo(_numbSort);
 
             _checkGround = true;
         }
-      
+        _numberJumps = 0;
+        _jumpPulos = 0;
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -137,5 +153,7 @@ public class MovePlayer : MonoBehaviour
         morte = true;
     }
 
+       
+  
 
 }

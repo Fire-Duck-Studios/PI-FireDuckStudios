@@ -1518,6 +1518,9 @@ MonoBehaviour:
   _facingRight: 0
   morte: 0
   popular: 0
+  minJumpForce: 5
+  maxJumpForce: 15
+  chargeSpeed: 10
 --- !u!50 &1003926969
 Rigidbody2D:
   serializedVersion: 5
@@ -1533,7 +1536,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
