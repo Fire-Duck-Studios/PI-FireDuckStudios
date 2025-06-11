@@ -592,6 +592,8 @@ MonoBehaviour:
   _scaleX: -0.1422213
   _dir: 0
   _isDead: 0
+  _Rg: {fileID: 0}
+  checkLimbo: 0
 --- !u!95 &3763028176917489353
 Animator:
   serializedVersion: 7
@@ -1066,7 +1068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8331004823bb34f9c47df3dc44878d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fimGame: {fileID: 0}
   _jumpControl:
   - {fileID: 6422857048804005665}
   - {fileID: 5736934318581096471}

@@ -3,142 +3,125 @@ using UnityEngine.InputSystem;
 
 public class MovePlayer : MonoBehaviour
 {
+    // Componentes
     MJ_GameControl _gameControl;
     Rigidbody2D _rb;
-    Vector2 _moveInput,center;
+    Animator _anim;
+
+    // Input
+    Vector2 _moveInput;
+
+    // Movimento e pulo
     [SerializeField] float _speed;
     [SerializeField] float _jumpPulos;
     [SerializeField] float _forceJump;
     public int _numberJumps = 0;
     public int _MaximoJump = 2;
-    [SerializeField] bool _checkGround, _facingRight, morte, popular = false;
-    //MJ_Enemy mJ_Enemy;
-    Animator _anim;
 
-
-   
+    // Estado do personagem
+    [SerializeField] bool _checkGround;
+    [SerializeField] bool _facingRight;
+    [SerializeField] bool _morte;
+    [SerializeField] bool _podePular = false;
 
     void Start()
     {
         _anim = GetComponent<Animator>();
-        _rb =GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
-        //mJ_Enemy = GameObject.FindWithTag("Enemy").GetComponent<MJ_Enemy>();
-      
     }
 
     void FixedUpdate()
     {
-        
-
-
-        if (_gameControl._gameStay == true) 
+        if (_gameControl._gameStay)
         {
-            _rb.linearVelocityX = _moveInput.x * _speed;
-            popular = true;
+            _rb.linearVelocity = new Vector2(_moveInput.x * _speed, _rb.linearVelocity.y);
+            _podePular = true;
         }
-      
+
         if (_gameControl.certo)
         {
             _gameControl._gameStay = false;
             _gameControl._fimGame = true;
 
             _rb.bodyType = RigidbodyType2D.Kinematic;
-            _rb.linearVelocity = new Vector2(0, 0);
+            _rb.linearVelocity = Vector2.zero;
 
             _gameControl._panelFimGame.gameObject.SetActive(true);
             _gameControl._panelFimGame.transform.localScale = Vector3.one;
 
             _gameControl.GameStay(false);
-
-
         }
 
-        if (!morte) 
+        if (!_morte) 
         {
+            if (_moveInput.x > 0 && _facingRight)
+            {
+                Flip();
+            }
+            else if (_moveInput.x < 0 && !_facingRight)
+            {
+                Flip();
+            }
 
-            if (_moveInput.x > 0 && _facingRight == true)
-            {
-                flip();
-            }
-            else if (_moveInput.x < 0 && _facingRight == false)
-            {
-                flip();
-            }
             Anim();
 
 
-
-        }
+        }  
         
-     
-
     }
 
     private void Anim()
     {
-        float _animMoveX = Mathf.Abs(_moveInput.x);
-        _anim.SetFloat("MoveH", _animMoveX);
-        _anim.SetFloat("MoveY", _moveInput.y);
-    }
-    void Jump()
-    {
-        if (_rb.linearVelocityY <= 0 && popular)
-        {
-            _rb.linearVelocityY = 0;
-            _rb.AddForceY(_forceJump);
-        }
+        float moveX = Mathf.Abs(_moveInput.x);
+        _anim.SetFloat("MoveH", moveX);
+        _anim.SetFloat("MoveY", _rb.linearVelocity.y);
     }
 
     public void SetMove(InputAction.CallbackContext value)
     {
         _moveInput = value.ReadValue<Vector2>();
     }
+
     public void SetJump(InputAction.CallbackContext value)
     {
+        if (!_podePular) return;
+
         if (value.performed && _checkGround && _jumpPulos == 0)
         {
-
-             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 0);
-            _rb.AddForce(transform.up * _forceJump, ForceMode2D.Impulse);
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 0);
+            _rb.AddForce(Vector2.up * _forceJump, ForceMode2D.Impulse);
             _numberJumps++;
             _jumpPulos = 1;
         }
         else if (value.performed && !_checkGround && _numberJumps <= _MaximoJump && _jumpPulos == 1)
         {
             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 0);
-            _rb.AddForce(transform.up * _forceJump, ForceMode2D.Impulse);
+            _rb.AddForce(Vector2.up * _forceJump, ForceMode2D.Impulse);
             _numberJumps++;
             _jumpPulos = 2;
         }
-
-
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.CompareTag("Ground"))
         {
-            MJ_GroundJumpControl groundJump = collision.gameObject.GetComponent<MJ_GroundJumpControl>();
-            Debug.Log("_numbSort");
-            //_gameControl._menuControl.CorPulo(_numbSort);
-
             _checkGround = true;
+            _numberJumps = 0;
+            _jumpPulos = 0;
         }
-        _numberJumps = 0;
-        _jumpPulos = 0;
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.CompareTag("Ground"))
         {
             _checkGround = false;
         }
 
-        if (collision.gameObject.CompareTag("Limbo"))
+        if (collision.CompareTag("Limbo"))
         {
-            //_isDead = true;
             _gameControl._gameStay = false;
             _gameControl._fimGame = true;
 
@@ -148,25 +131,20 @@ public class MovePlayer : MonoBehaviour
             _gameControl.GameStay(false);
             Morte();
         }
-        
     }
 
-    void flip()
+    void Flip()
     {
         _facingRight = !_facingRight;
-        float x = transform.localScale.x;
-        x *= -1;
-        transform.localScale = new Vector2(x, transform.localScale.y);
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 
     public void Morte()
     {
         _rb.bodyType = RigidbodyType2D.Kinematic;
-        _rb.linearVelocity = new Vector2(0, 0);
-        morte = true;
+        _rb.linearVelocity = Vector2.zero;
+        _morte = true;
     }
-
-       
-  
-
 }

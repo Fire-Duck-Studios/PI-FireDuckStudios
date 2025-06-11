@@ -1653,8 +1653,8 @@ MonoBehaviour:
   _MaximoJump: 2
   _checkGround: 0
   _facingRight: 0
-  morte: 0
-  popular: 0
+  _morte: 0
+  _podePular: 0
 --- !u!50 &1003926969
 Rigidbody2D:
   serializedVersion: 5
@@ -2115,7 +2115,7 @@ MonoBehaviour:
   _pontuacaotexto: {fileID: 962897767}
   _fimGame: 0
   pontuacao: 0
-  _groundNumber: 10
+  _groundNumber: 20
   certo: 0
   _panelStartGame: {fileID: 809298242}
   _panelFimGame: {fileID: 655178462}
