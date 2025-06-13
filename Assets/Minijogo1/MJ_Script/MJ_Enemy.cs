@@ -4,39 +4,27 @@ using UnityEngine;
 
 public class MJ_Enemy : MonoBehaviour
 {
-    [SerializeField] float _Speed = 2f;
+    [SerializeField] float _Speed;
     [SerializeField] float _scaleX = 1f;
     public bool _dir, _isDead = false;
-    MovePlayer _movePlayer;
-    MJ_GameControl _gameControl;
-    [SerializeField] Rigidbody2D _Rg;
-    [SerializeField] bool checkLimbo;
+    Rigidbody2D _rg;
+    Animator _enemyAnim;
+ 
 
     void Start()
     {
         float[] valores = { 1f, 2f, 3f };
         _Speed = valores[Random.Range(0, valores.Length)];
-        _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
-        _movePlayer = GameObject.FindWithTag("Player").GetComponent<MovePlayer>();
-        _Rg = GetComponent<Rigidbody2D>();
+        _rg = GetComponent<Rigidbody2D>();
+        _enemyAnim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (_isDead) return; 
 
-        if (!checkLimbo)
-        {
-            _Rg.linearVelocity = new Vector2(_Speed, _Rg.linearVelocity.y);
-        }
+        _rg.linearVelocity = new Vector2(_Speed, _rg.linearVelocity.y);
 
-        // Ajusta visualmente a direção do inimigo (flip)
-        if (_Speed > 0)
-            transform.localScale = new Vector3(_scaleX, transform.localScale.y, transform.localScale.z);
-        else
-            transform.localScale = new Vector3(-_scaleX, transform.localScale.y, transform.localScale.z);
-
-     
+        Flip();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,7 +34,7 @@ public class MJ_Enemy : MonoBehaviour
             //Debug.Log("Colidiu com o bloco!");
             _Speed *= -1;
             _dir = true;
-            Invoke("TimerDir", 0.2f); // tempo menor já basta
+            Invoke("TimerDir", 0.2f);
         }
 
         
@@ -54,12 +42,10 @@ public class MJ_Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-
         if (other.gameObject.CompareTag("Player"))
         {
-            Dead();
-            
-            
+            //print("O inimigo esta morto");
+            EnemyDead();
         }
     }
 
@@ -68,18 +54,22 @@ public class MJ_Enemy : MonoBehaviour
         _dir = false;
     }
 
-    public void Dead()
+    public void EnemyDead()
     {
 
-        _isDead = true;
-        _gameControl._gameStay = false;
-            _gameControl._fimGame = true;
+        _rg.bodyType = RigidbodyType2D.Kinematic;
+        _rg.linearVelocity = Vector2.zero;
+        _Speed *= 0;
+        //_enemyAnim.enabled = false;
 
-            _gameControl._panelFimGame.gameObject.SetActive(true);
-            _gameControl._panelFimGame.transform.localScale = Vector3.one;
+    }
 
-            _gameControl.GameStay(false);
-        _movePlayer.Morte();
-
+    private void Flip()
+    {
+        // Ajusta visualmente a direção do inimigo (flip)
+        if (_Speed > 0)
+            transform.localScale = new Vector3(_scaleX, transform.localScale.y, transform.localScale.z);
+        else
+            transform.localScale = new Vector3(-_scaleX, transform.localScale.y, transform.localScale.z);
     }
 }

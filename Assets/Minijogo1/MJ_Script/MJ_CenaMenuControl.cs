@@ -13,7 +13,7 @@ public class MJ_CenaMenuControl : MonoBehaviour
     }
     public void CenaGame()
     {
-        SceneManager.LoadScene("Game1");
+        SceneManager.LoadScene("MiniJogo1");
     }
 
     public void CreditosOpen()

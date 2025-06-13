@@ -31,7 +31,7 @@ public class MovePlayer : MonoBehaviour
         _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (_gameControl._gameStay)
         {
@@ -41,16 +41,7 @@ public class MovePlayer : MonoBehaviour
 
         if (_gameControl.certo)
         {
-            _gameControl._gameStay = false;
-            _gameControl._fimGame = true;
-
-            _rb.bodyType = RigidbodyType2D.Kinematic;
-            _rb.linearVelocity = Vector2.zero;
-
-            _gameControl._panelFimGame.gameObject.SetActive(true);
-            _gameControl._panelFimGame.transform.localScale = Vector3.one;
-
-            _gameControl.GameStay(false);
+            PlayerDead();
         }
 
         if (!_morte) 
@@ -129,8 +120,30 @@ public class MovePlayer : MonoBehaviour
             _gameControl._panelFimGame.transform.localScale = Vector3.one;
 
             _gameControl.GameStay(false);
-            Morte();
+            PlayerDead();
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy")) 
+        {
+            PlayerDead();
+        }
+    }
+    public void PlayerDead()
+    {
+        _gameControl._gameStay = false;
+        _gameControl._fimGame = true;
+
+        _gameControl._panelFimGame.gameObject.SetActive(true);
+        _gameControl._panelFimGame.transform.localScale = Vector3.one;
+
+        _gameControl.GameStay(false);
+
+        _rb.bodyType = RigidbodyType2D.Kinematic;
+        _rb.linearVelocity = Vector2.zero;
+        _morte = true;
     }
 
     void Flip()
@@ -139,12 +152,5 @@ public class MovePlayer : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-    }
-
-    public void Morte()
-    {
-        _rb.bodyType = RigidbodyType2D.Kinematic;
-        _rb.linearVelocity = Vector2.zero;
-        _morte = true;
     }
 }

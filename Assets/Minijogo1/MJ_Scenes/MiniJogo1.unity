@@ -1382,7 +1382,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Game1
+          m_StringArgument: MiniJogo1
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &837003038
@@ -2533,7 +2533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5232022904953201683, guid: 9b0df4cc25ee53742ba8c82c7960721c, type: 3}
       propertyPath: m_Name
-      value: Blau
+      value: Player - Blau
       objectReference: {fileID: 0}
     - target: {fileID: 5232022904953201683, guid: 9b0df4cc25ee53742ba8c82c7960721c, type: 3}
       propertyPath: m_TagString
