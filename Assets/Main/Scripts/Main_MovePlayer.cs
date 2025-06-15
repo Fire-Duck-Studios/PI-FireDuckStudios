@@ -14,6 +14,9 @@ public class Main_MovePlayer : MonoBehaviour
 
     void Start()
     {
+        var playerInput = GetComponent<PlayerInput>();
+        Debug.Log("Player Index: " + playerInput.playerIndex);
+
         // seta o componente rigidbody na variavel
         _rb = GetComponent<Rigidbody2D>();
     }

@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class MJ_Enemy : MonoBehaviour
 {
-    [SerializeField] float _Speed;
     [SerializeField] float _scaleX = 1f;
-    public bool _dir, _isDead = false;
+    public bool _dir = false;
     Rigidbody2D _rg;
     Animator _enemyAnim;
- 
+    float[] valores = { 1f, 2f, 3f };
+    float _Speed;
+    int ultimoIndex = -1;
+
 
     void Start()
     {
-        float[] valores = { 1f, 2f, 3f };
-        _Speed = valores[Random.Range(0, valores.Length)];
+        SortearNovoSpeed();
         _rg = GetComponent<Rigidbody2D>();
         _enemyAnim = GetComponent<Animator>();
     }
 
     void Update()
     {
-
         _rg.linearVelocity = new Vector2(_Speed, _rg.linearVelocity.y);
 
         Flip();
@@ -46,6 +46,7 @@ public class MJ_Enemy : MonoBehaviour
         {
             //print("O inimigo esta morto");
             EnemyDead();
+            
         }
     }
 
@@ -60,7 +61,7 @@ public class MJ_Enemy : MonoBehaviour
         _rg.bodyType = RigidbodyType2D.Kinematic;
         _rg.linearVelocity = Vector2.zero;
         _Speed *= 0;
-        //_enemyAnim.enabled = false;
+       // _enemyAnim.enabled = false; 
 
     }
 
@@ -71,5 +72,18 @@ public class MJ_Enemy : MonoBehaviour
             transform.localScale = new Vector3(_scaleX, transform.localScale.y, transform.localScale.z);
         else
             transform.localScale = new Vector3(-_scaleX, transform.localScale.y, transform.localScale.z);
+    }
+
+    void SortearNovoSpeed()
+    {
+        int novoIndex;
+
+        do
+        {
+            novoIndex = Random.Range(0, valores.Length);
+        } while (novoIndex == ultimoIndex && valores.Length > 1); // repete até ser diferente
+
+        _Speed = valores[novoIndex];
+        ultimoIndex = novoIndex;
     }
 }

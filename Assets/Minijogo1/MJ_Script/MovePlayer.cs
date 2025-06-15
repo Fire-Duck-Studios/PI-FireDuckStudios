@@ -33,11 +33,9 @@ public class MovePlayer : MonoBehaviour
 
     void Update()
     {
-        if (_gameControl._gameStay)
-        {
-            _rb.linearVelocity = new Vector2(_moveInput.x * _speed, _rb.linearVelocity.y);
-            _podePular = true;
-        }
+        
+         _rb.linearVelocity = new Vector2(_moveInput.x * _speed, _rb.linearVelocity.y);
+         _podePular = true;
 
         if (_gameControl.certo)
         {
@@ -113,17 +111,10 @@ public class MovePlayer : MonoBehaviour
 
         if (collision.CompareTag("Limbo"))
         {
-            _gameControl._gameStay = false;
-            _gameControl._fimGame = true;
-
-            _gameControl._panelFimGame.gameObject.SetActive(true);
-            _gameControl._panelFimGame.transform.localScale = Vector3.one;
-
-            _gameControl.GameStay(false);
             PlayerDead();
         }
-    }
 
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy")) 
@@ -133,13 +124,12 @@ public class MovePlayer : MonoBehaviour
     }
     public void PlayerDead()
     {
-        _gameControl._gameStay = false;
         _gameControl._fimGame = true;
 
         _gameControl._panelFimGame.gameObject.SetActive(true);
         _gameControl._panelFimGame.transform.localScale = Vector3.one;
 
-        _gameControl.GameStay(false);
+        _speed = 0f;
 
         _rb.bodyType = RigidbodyType2D.Kinematic;
         _rb.linearVelocity = Vector2.zero;

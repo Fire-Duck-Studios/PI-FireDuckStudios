@@ -246,7 +246,7 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
-                    "isOptional": false,
+                    "isOptional": true,
                     "isOR": false
                 }
             ]
@@ -257,7 +257,7 @@
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
-                    "isOptional": false,
+                    "isOptional": true,
                     "isOR": false
                 }
             ]

@@ -12,7 +12,7 @@ public class MJ_MenuControl : MonoBehaviour
 
     void Start()
     {
-        _gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
+        //_gameControl = GameObject.FindWithTag("GameController").GetComponent<MJ_GameControl>();
         CorPulo(0);
     }
 
