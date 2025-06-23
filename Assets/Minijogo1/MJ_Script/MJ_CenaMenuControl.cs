@@ -9,10 +9,13 @@ public class MJ_CenaMenuControl : MonoBehaviour
     //[SerializeField] Transform _panelCreditos;
     [SerializeField] Transform[] _painelStart;
     [SerializeField] Transform[] _painelCreditos;
+    [SerializeField] Transform[] _logo;
+    [SerializeField] Transform _posLogo;
 
 
     public void Start()
     {
+        _posLogo = GetComponent<Transform>();
         
         for (int i = 0; i < _painelStart.Length; i++)
         {
@@ -24,6 +27,7 @@ public class MJ_CenaMenuControl : MonoBehaviour
         }
 
         PainelStartCheck(true);
+        
 
     }
 
@@ -32,6 +36,7 @@ public class MJ_CenaMenuControl : MonoBehaviour
         if (CheckON == true)
         {
             StartCoroutine(TimeStart());
+            StartCoroutine(TimeAnimarLgo());
         }
         else
         {
@@ -58,11 +63,30 @@ public class MJ_CenaMenuControl : MonoBehaviour
             _painelCreditos[i].DOScale(1, .25f);
         }
     }
+
+    IEnumerator TimeAnimarLgo()
+    { 
+        for (int i = 0; i < _logo.Length; i++)
+        {
+                _logo[i].DOLocalJump(new Vector3(0, 0, 0), 100, 3, 3f, false);
+                yield return new WaitForSeconds(2f);
+                
+        }
+    }
+
+
     public void PainelStartOff()
     {
         for (int i = 0; i < _painelStart.Length; i++)
         {
             _painelStart[i].DOScale(0, .25f);
+        }
+
+        for (int i = 0; i < _logo.Length; i++)
+        {
+            _logo[i].DOScale(0, .25f);
+
+
         }
     }
 
