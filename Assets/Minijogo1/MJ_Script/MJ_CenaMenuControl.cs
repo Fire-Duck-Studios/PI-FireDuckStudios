@@ -10,12 +10,13 @@ public class MJ_CenaMenuControl : MonoBehaviour
     [SerializeField] Transform[] _painelStart;
     [SerializeField] Transform[] _painelCreditos;
     [SerializeField] Transform[] _logo;
-    [SerializeField] Transform _posLogo;
+    
+    [SerializeField] Vector3 _posLogo;
 
 
     public void Start()
     {
-        _posLogo = GetComponent<Transform>();
+        _posLogo = _logo[0].transform.position;
         
         for (int i = 0; i < _painelStart.Length; i++)
         {
@@ -77,6 +78,7 @@ public class MJ_CenaMenuControl : MonoBehaviour
 
     public void PainelStartOff()
     {
+        //Debug.Log("entrou nessa porra");
         for (int i = 0; i < _painelStart.Length; i++)
         {
             _painelStart[i].DOScale(0, .25f);
@@ -84,10 +86,19 @@ public class MJ_CenaMenuControl : MonoBehaviour
 
         for (int i = 0; i < _logo.Length; i++)
         {
+            //Debug.Log("entrou nessa porra2");
             _logo[i].DOScale(0, .25f);
-
-
+            Invoke("LogoRestart", .25f);
         }
+
+        
+
+    }
+
+    public void LogoRestart()
+    {
+        _logo[0].DOScale(1, .25f);
+        _logo[0].transform.position = _posLogo;
     }
 
     public void CenaGame()
